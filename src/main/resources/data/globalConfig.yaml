@@ -1,0 +1,14 @@
+appiumConfig:
+  app:
+  url: http://127.0.0.1:4723/wd/hub
+  capabilities:
+    platformName: Android
+    deviceName: 2c8e6af4
+    appPackage: com.leo
+    appActivity: .activity.WelcomeActivity
+    autoGrantPermissions: true
+    unicodeKeyboard: true
+    resetKeyboard: true
+    automationName: uiautomator2
+    chromedriverExecutableDir: D:\QinZhen\TestDev\chromedrivers\
+    #noReset: true  #真机测试时往往不需要每次清理数据和缓存

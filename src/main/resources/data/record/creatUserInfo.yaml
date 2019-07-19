@@ -1,0 +1,15 @@
+#String patientName = "患者" +baseUtil.getRandomAlphabet();
+sex: 女
+#String phoneNumber = baseUtil.getRandomPhoneNumber();
+marriageText: 其它
+marriageTypeContext:  其它
+marriageType: text
+jobText: 公务员
+jobTypeContext: 公务员
+jobType: text
+educationText: 大学
+educationTypeContext: 大学
+educationType: text
+eduTimeText: 6
+eduTimeTypeContext: 6
+eduTimeType: text
