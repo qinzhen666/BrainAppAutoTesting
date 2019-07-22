@@ -1,0 +1,10 @@
+#根据患者列表查询条件查询已创建的患者
+url: http://ijixin.com/brain/rest/patients
+#url: http://192.168.1.103:8080/brainPlatform/rest/patients
+method: post
+
+
+
+
+
+
