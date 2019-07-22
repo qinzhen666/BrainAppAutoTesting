@@ -2,21 +2,27 @@ package com.gvbrain.brainapp.api.page.record;
 
 import com.gvbrain.brainapp.api.page.MainPage;
 import com.gvbrain.brainapp.api.page.login.LoginPage;
+import com.gvbrain.brainapp.api.page.record.api.PatientManger;
 import com.gvbrain.brainapp.api.testcase.AppTestCase;
 import com.gvbrain.brainapp.api.util.BaseUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 class RecordPageTest extends AppTestCase {
 
     BaseUtil baseUtil = new BaseUtil();
+    static PatientManger patientManger;
 
     @BeforeAll
     static void beforeEvaluativePageTest(){
+        if (patientManger == null){
+            patientManger = new PatientManger();
+            patientManger.deleteAllPatients();
+        }
+
         String username = "18616210504";
         String password = "suiren123";
         LoginPage.getInstance().登录成功(username,password);
@@ -25,11 +31,19 @@ class RecordPageTest extends AppTestCase {
         }catch (Exception e) {
             System.out.println("[ERROR]:未成功进入首页,登录失败]");
         }
-    }
 
+
+
+    }
     @BeforeEach
     void beforeEach(){
             MainPage.getInstance().gotoHome();
+    }
+
+    @Test
+    void deleteALL(){
+        patientManger = new PatientManger();
+        patientManger.deleteAllPatients();
     }
 
     @Test

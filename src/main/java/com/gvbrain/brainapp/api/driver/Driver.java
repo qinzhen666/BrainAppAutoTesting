@@ -37,7 +37,6 @@ public class Driver {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
     }
 
     public String getPlatform(){

@@ -1,0 +1,6 @@
+currentEnv: brainPlatformDev
+env:
+  brainPlatformTest:
+    "ijixin.com":  "192.168.1.103"
+  brainPlatformDev:
+    "ijixin.com": "47.103.47.170"

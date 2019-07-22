@@ -1,0 +1,3 @@
+url: http://ijixin.com/brain/rest/patient/delete
+#path: /rest/patient/delete
+method: get
