@@ -3,7 +3,7 @@ appiumConfig:
   url: http://127.0.0.1:4723/wd/hub
   capabilities:
     platformName: Android
-    deviceName: 2c8e6af4
+    deviceName: FKFBB19120151160
     appPackage: com.leo
     appActivity: .activity.WelcomeActivity
     autoGrantPermissions: true

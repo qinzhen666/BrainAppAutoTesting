@@ -26,7 +26,6 @@ public class PatientManger extends ApiTokenUtil {
         for (Integer uid: idList) {
             System.out.println("遍历IDList");
             deletePatient(uid);
-            System.out.println("2222222222222");
         }
         return null;
     }

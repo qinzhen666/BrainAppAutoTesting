@@ -1,0 +1,5 @@
+#查询当前登陆用户的自定义测评方案
+url: http://ijixin.com/brain/rest/assessmentPlan
+method: get
+
+#参数仅需Token

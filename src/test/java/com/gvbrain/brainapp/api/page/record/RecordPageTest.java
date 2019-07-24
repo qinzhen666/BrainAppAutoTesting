@@ -40,21 +40,28 @@ class RecordPageTest extends AppTestCase {
             MainPage.getInstance().gotoHome();
     }
 
-    @Test
+    /*@Test
     void deleteALL(){
         patientManger = new PatientManger();
         patientManger.deleteAllPatients();
-    }
+    }*/
 
     @Test
     void 创建患者(){
         //todo:对参数进行封装,配置驱动
+        String patientName = baseUtil.getRandomPatientName();
+        String phoneNumber = baseUtil.getRandomPhoneNumber();
         String password = "suiren123";
         String context = "其他药物";
         String expectation = "操作成功";
         String testResult = MainPage.getInstance().gotoRecord().IntoByPassword(password).gotoCreateUser()
-                .FileInBaseInfo()
+                .FileInBaseInfo(patientName,phoneNumber)
                 .FileInMedicalRecord(context);
+        try {
+            MainPage.getInstance().gotoRecord().editPatient().checkPatient(patientName,phoneNumber);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertThat(testResult,equalTo(expectation));
     }
 
@@ -74,4 +81,6 @@ class RecordPageTest extends AppTestCase {
         }
         assertThat(testResult,equalTo(expectation));
     }
+
+
 }

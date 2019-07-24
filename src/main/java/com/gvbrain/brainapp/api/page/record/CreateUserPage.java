@@ -2,12 +2,19 @@ package com.gvbrain.brainapp.api.page.record;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.gvbrain.brainapp.api.driver.Driver;
 import com.gvbrain.brainapp.api.page.BasePage;
 import com.gvbrain.brainapp.api.page.record.pojo.CreateUserInfo;
 import com.gvbrain.brainapp.api.util.ScrollSelectUtil;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.apache.tools.ant.types.selectors.SelectorUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class CreateUserPage extends BasePage {
 
@@ -82,6 +89,7 @@ public class CreateUserPage extends BasePage {
     }
 
     public CreateUserPage FileInBaseInfo(String patientName,String phoneNumber){
+        ScrollSelectUtil selectUtil = new ScrollSelectUtil();
         CreateUserInfo createUserInfo = loadYamlData("/data/record/creatUserInfo.yaml");
         sendKeys(A姓名,null,patientName);
         if (createUserInfo.sex.equals("男")){
@@ -92,9 +100,9 @@ public class CreateUserPage extends BasePage {
         sendKeys(A联系电话,null,phoneNumber);
         click(A出生日期,null);
         //select出生日期
+
         click(A确定,null);
         click(A婚姻状况,null);
-        ScrollSelectUtil selectUtil = new ScrollSelectUtil();
         //滑动查找所选婚姻状况marriageText
         selectUtil.scrollSelect(createUserInfo.marriageText,createUserInfo.marriageTypeContext,createUserInfo.marriageType);
         click(A职业,null);
@@ -107,6 +115,10 @@ public class CreateUserPage extends BasePage {
         //滑动查找所选受教育年限eduTimeText
         selectUtil.scrollSelect(createUserInfo.eduTimeText,createUserInfo.eduTimeTypeContext,createUserInfo.eduTimeType);
         click(A常驻地,null);
+        click(By.id("options1"),null);
+        swipeBylocate();
+        /*Select province = new Select(find(By.id("options1"),null));
+        province.selectByValue("辽宁省");*/
         click(A确定,null);
         click(A下一步,null);
         return this;
@@ -137,6 +149,19 @@ public class CreateUserPage extends BasePage {
             click(byText("确定"),null);
             throw new Exception("[ERROR]患者信息不匹配,列表首位患者与目标删除患者不一致!");
         }
+    }
+
+    private void swipeBylocate(){
+        int startX = 740; int startY = 692;
+        int endX = 740; int endY = 630;
+        while (true){
+            new TouchAction<>(Driver.getInstance().appiumDriver)
+                    .press(PointOption.point(startX,startY))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                    .moveTo(PointOption.point(endX,endY))
+                    .release().perform();
+        }
+
     }
 
 }

@@ -1,0 +1,5 @@
+#删除自定义测评方案
+url: http://ijixin.com/brain/rest/assessmentPlan/delete
+method: get
+
+#参数为integer uid

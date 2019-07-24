@@ -17,9 +17,9 @@ public class EvaluativePage extends BasePage {
         return new EvaluationListPage();
     }
 
-    public MyProjectPage gotoMyProject(){
+    public MyAssessmentPlanPage gotoMyProject(){
         click(A我的方案,null);
-        return new MyProjectPage();
+        return new MyAssessmentPlanPage();
     }
 
     public AddSelfProjectPage togoAddSelfProject(){
