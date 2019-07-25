@@ -5,14 +5,15 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.gvbrain.brainapp.api.driver.Driver;
 import com.gvbrain.brainapp.api.page.BasePage;
 import com.gvbrain.brainapp.api.page.record.pojo.CreateUserInfo;
+import com.gvbrain.brainapp.api.util.BaseUtil;
+import com.gvbrain.brainapp.api.util.JavaCVUtil;
 import com.gvbrain.brainapp.api.util.ScrollSelectUtil;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.apache.tools.ant.types.selectors.SelectorUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -89,6 +90,7 @@ public class CreateUserPage extends BasePage {
     }
 
     public CreateUserPage FileInBaseInfo(String patientName,String phoneNumber){
+        String comparisonPicPath = "D:\\QinZhen\\TestDev\\appium\\AppiumTest\\BrainAppTesting\\src\\main\\resources\\data\\image\\addressComparisonPic.png";
         ScrollSelectUtil selectUtil = new ScrollSelectUtil();
         CreateUserInfo createUserInfo = loadYamlData("/data/record/creatUserInfo.yaml");
         sendKeys(A姓名,null,patientName);
@@ -100,7 +102,6 @@ public class CreateUserPage extends BasePage {
         sendKeys(A联系电话,null,phoneNumber);
         click(A出生日期,null);
         //select出生日期
-
         click(A确定,null);
         click(A婚姻状况,null);
         //滑动查找所选婚姻状况marriageText
@@ -116,10 +117,7 @@ public class CreateUserPage extends BasePage {
         selectUtil.scrollSelect(createUserInfo.eduTimeText,createUserInfo.eduTimeTypeContext,createUserInfo.eduTimeType);
         click(A常驻地,null);
         click(By.id("options1"),null);
-        swipeBylocate();
-        /*Select province = new Select(find(By.id("options1"),null));
-        province.selectByValue("辽宁省");*/
-        click(A确定,null);
+        swipeByCoordinate(comparisonPicPath);
         click(A下一步,null);
         return this;
     }
@@ -151,17 +149,29 @@ public class CreateUserPage extends BasePage {
         }
     }
 
-    private void swipeBylocate(){
+    private void swipeByCoordinate(String comparisonPicPath){
         int startX = 740; int startY = 692;
         int endX = 740; int endY = 630;
-        while (true){
-            new TouchAction<>(Driver.getInstance().appiumDriver)
-                    .press(PointOption.point(startX,startY))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-                    .moveTo(PointOption.point(endX,endY))
-                    .release().perform();
-        }
+        boolean check = false;
+        for (int i = 0;i<34; i++){
+            String originalPicPath = new BaseUtil().ScreenshotAsDate();//获取原图片文件
+            System.out.println(originalPicPath);
+            check = new JavaCVUtil().javaCVTest(comparisonPicPath,originalPicPath);
+            new File(originalPicPath).delete();//每次匹配完成后将截图删除
+            if (check){ //如果匹配到了浙江省就确定
+                click(A确定,null);
+                break;
+            }else {
+                new TouchAction<>(Driver.getInstance().appiumDriver)
+                        .press(PointOption.point(startX,startY))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                        .moveTo(PointOption.point(endX,endY))
+                        .release().perform();
+            }
 
+        }
     }
+
+
 
 }

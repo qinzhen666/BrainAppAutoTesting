@@ -108,8 +108,13 @@
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>javacv-platform</artifactId>
-            <version>1.5.1</version>
+            <version>RELEASE</version>
         </dependency>
+        <!--<dependency>
+            <groupId>com.googlecode.javacv</groupId>
+            <artifactId>javacv</artifactId>
+            <version>RELEASE</version>
+        </dependency>-->
 
         <!--接口测试依赖-->
         <dependency>

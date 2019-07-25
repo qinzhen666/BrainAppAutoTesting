@@ -45,6 +45,10 @@ class RecordPageTest extends AppTestCase {
         patientManger = new PatientManger();
         patientManger.deleteAllPatients();
     }*/
+    @Test
+    void test(){
+        System.out.println(new BaseUtil().ScreenshotAsDate());
+    }
 
     @Test
     void 创建患者(){

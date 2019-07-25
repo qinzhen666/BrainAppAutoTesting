@@ -1,0 +1,54 @@
+{
+  "body": [
+    {
+      "assessmentItems": [
+        {
+          "assessmentDescribe": "string",
+          "assessmentName": "string",
+          "classify": 0,
+          "createTime": "2019-07-22T09:36:32.864Z",
+          "creator": "string",
+          "duration": 0,
+          "normalScore": "string",
+          "testId": "string",
+          "uid": 0,
+          "updateTime": "2019-07-22T09:36:32.864Z",
+          "value": 0
+        }
+      ],
+      "assessmentNum": 0,
+      "assessmentPlanDescribe": "string",
+      "assessmentPlanName": "string",
+      "classify": 0,
+      "createTime": "2019-07-22T09:36:32.864Z",
+      "creator": "string",
+      "doctorUid": 0,
+      "hospitals": [
+        {
+          "address": "string",
+          "city": "string",
+          "cityId": "string",
+          "createTime": "2019-07-22T09:36:32.864Z",
+          "gps_lat": 0,
+          "gps_lng": 0,
+          "hospitalName": "string",
+          "lat": 0,
+          "lng": 0,
+          "province": "string",
+          "provinceId": "string",
+          "uid": 0,
+          "updateTime": "2019-07-22T09:36:32.864Z",
+          "value": 0
+        }
+      ],
+      "isShow": 0,
+      "status": 0,
+      "totleDuration": 0,
+      "type": 0,
+      "uid": 0,
+      "updateTime": "2019-07-22T09:36:32.864Z"
+    }
+  ],
+  "message": "string",
+  "status": "string"
+}
