@@ -14,15 +14,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 class RecordPageTest extends AppTestCase {
 
     BaseUtil baseUtil = new BaseUtil();
-    static PatientManger patientManger;
 
     @BeforeAll
     static void beforeEvaluativePageTest(){
-        if (patientManger == null){
-            patientManger = new PatientManger();
-            patientManger.deleteAllPatients();
-        }
-
         String username = "18616210504";
         String password = "suiren123";
         LoginPage.getInstance().登录成功(username,password);
@@ -45,10 +39,10 @@ class RecordPageTest extends AppTestCase {
         patientManger = new PatientManger();
         patientManger.deleteAllPatients();
     }*/
-    @Test
+    /*@Test
     void test(){
         System.out.println(new BaseUtil().ScreenshotAsDate());
-    }
+    }*/
 
     @Test
     void 创建患者(){

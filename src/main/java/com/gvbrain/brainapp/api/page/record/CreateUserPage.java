@@ -59,6 +59,7 @@ public class CreateUserPage extends BasePage {
     }
 
     public CreateUserPage FileInBaseInfo(){
+        String comparisonPicPath = "D:\\QinZhen\\TestDev\\appium\\AppiumTest\\BrainAppTesting\\src\\main\\resources\\data\\image\\addressComparisonPic.png";
         CreateUserInfo createUserInfo = loadYamlData("/data/record/creatUserInfo.yaml");
         sendKeys(A姓名,null,createUserInfo.patientName);
         if (createUserInfo.sex.equals("男")){
@@ -84,7 +85,8 @@ public class CreateUserPage extends BasePage {
         //滑动查找所选受教育年限eduTimeText
         selectUtil.scrollSelect(createUserInfo.eduTimeText,createUserInfo.eduTimeTypeContext,createUserInfo.eduTimeType);
         click(A常驻地,null);
-        click(A确定,null);
+        click(By.id("options1"),null);
+        swipeByCoordinate(comparisonPicPath);
         click(A下一步,null);
         return this;
     }

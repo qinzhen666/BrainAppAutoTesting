@@ -11,6 +11,8 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -30,7 +32,10 @@ public class ReportPage extends BasePage {
 
 
     public MyAssessmentPlanPage checkReport() {
-        find(A二维码, null);
+        //防止因为网络原因加载二维码较慢,加入显示等待
+        WebDriverWait wait = new WebDriverWait(Driver.getInstance().appiumDriver,15);
+        wait.until(ExpectedConditions.elementToBeClickable(A二维码));
+//        find(A二维码, null);
         click(A扫一扫, null);
         click(A查看详情2, null);
         try {
