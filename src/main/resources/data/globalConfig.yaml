@@ -5,7 +5,7 @@ appiumConfig:
     platformName: Android
     deviceName: FKFBB19120151160
     appPackage: com.leo
-    appActivity: .activity.WelcomeActivity
+    #appActivity: .activity.WelcomeActivity
     autoGrantPermissions: true
     unicodeKeyboard: true
     resetKeyboard: true

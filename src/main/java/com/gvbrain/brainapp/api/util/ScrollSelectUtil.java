@@ -27,7 +27,7 @@ public class ScrollSelectUtil extends BasePage {
     public static final String INSTENCE = "INSTENCE";
 */
     // name,id,AccessibilityId method
-    public String scrollTo(String content, String type)
+    private String scrollTo(String content, String type)
     {
         String uiautomatorStr = null;
 
@@ -55,7 +55,7 @@ public class ScrollSelectUtil extends BasePage {
     }
 
     // className method
-    public String scrollTo(String className, String classType, String type, int number)
+    private String scrollTo(String className, String classType, String type, int number)
     {
         String uiautomatorStr = null;
 

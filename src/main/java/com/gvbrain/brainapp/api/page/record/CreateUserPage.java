@@ -59,7 +59,8 @@ public class CreateUserPage extends BasePage {
     }
 
     public CreateUserPage FileInBaseInfo(){
-        String comparisonPicPath = "D:\\QinZhen\\TestDev\\appium\\AppiumTest\\BrainAppTesting\\src\\main\\resources\\data\\image\\addressComparisonPic.png";
+        //带比较图片路径
+        String comparisonPicPath = "/Users/qinzhen/Documents/TestDev/appium/AppiumTest/BrainAppTesting/src/main/resources/data/image/addressComparisonPic.png";
         CreateUserInfo createUserInfo = loadYamlData("/data/record/creatUserInfo.yaml");
         sendKeys(A姓名,null,createUserInfo.patientName);
         if (createUserInfo.sex.equals("男")){
@@ -92,7 +93,8 @@ public class CreateUserPage extends BasePage {
     }
 
     public CreateUserPage FileInBaseInfo(String patientName,String phoneNumber){
-        String comparisonPicPath = "D:\\QinZhen\\TestDev\\appium\\AppiumTest\\BrainAppTesting\\src\\main\\resources\\data\\image\\addressComparisonPic.png";
+//        String comparisonPicPath = "D:\\QinZhen\\TestDev\\appium\\AppiumTest\\BrainAppTesting\\src\\main\\resources\\data\\image\\addressComparisonPic.png";
+        String comparisonPicPath = "..\\data\\image\\addressComparisonPic.png";
         ScrollSelectUtil selectUtil = new ScrollSelectUtil();
         CreateUserInfo createUserInfo = loadYamlData("/data/record/creatUserInfo.yaml");
         sendKeys(A姓名,null,patientName);
@@ -151,6 +153,9 @@ public class CreateUserPage extends BasePage {
         }
     }
 
+    /*
+    匹配到了就确定，否则就滑动重新匹配
+     */
     private void swipeByCoordinate(String comparisonPicPath){
         int startX = 740; int startY = 692;
         int endX = 740; int endY = 630;

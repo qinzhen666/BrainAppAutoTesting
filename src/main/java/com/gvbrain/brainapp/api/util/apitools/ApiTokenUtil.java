@@ -8,7 +8,7 @@ public class ApiTokenUtil extends ApiUtil{
 
     private static String token;
     private static String BrainPlatformTestUrl = "http://192.168.1.103/brain/rest/user/login";
-    private static String BrainPlatformDevUrl = "http://ijixin.com/brain/rest/user/login";
+    private static String BrainPlatformDevUrl = "http://47.103.47.170/brain/rest/user/login";
 
     @Override
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern){

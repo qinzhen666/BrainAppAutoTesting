@@ -13,7 +13,7 @@ public class JavaCVUtil {
     private IplImage image;
 
     public void load(String filename) {
-        //这里需要传入图片文件的绝对路径
+        //传入需要对比的图片的路径
         image = cvLoadImage(filename);
     }
 
